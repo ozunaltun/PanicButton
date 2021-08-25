@@ -1,0 +1,88 @@
+
+<html>
+    <head>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+var button = document.createElement('button');
+button.style.backgroundColor = 'red';
+button.style.borderRadius = '50%';
+button.style.width = '200px';
+button.style.height = '200px';
+button.style.position = 'absolute';
+button.style.left = '50%';
+button.style.top = '50%';
+button.style.transform = 'translate(-50%, -50%)';
+button.style.fontSize = '200px';
+button.style.color = 'white';
+button.style.textAlign = 'center';
+button.style.lineHeight = '200px';
+button.innerHTML = 'PANIC';
+document.body.appendChild(button);
+
+button.style.fontSize = '100px';
+
+button.style.fontSize = '50px';
+
+button.onclick = function() {
+  button.style.display = 'none';
+  var panicText = document.createElement('div');
+  panicText.style.fontSize = '200px';
+  panicText.style.color = 'red';
+  panicText.style.position = 'absolute';
+  panicText.style.left = '50%';
+  panicText.style.top = '50%';
+  panicText.style.transform = 'translate(-50%, -50%)';
+  panicText.style.textAlign = 'center';
+  panicText.style.lineHeight = '200px';
+  panicText.innerHTML = 'Now you can panic';
+  document.body.appendChild(panicText);
+};
+
+document.querySelectorAll('*').forEach(function(el) {
+  el.style.textTransform = 'uppercase';
+});
+
+document.body.style.backgroundColor = 'black';
+
+document.querySelectorAll('*').forEach(function(el) {
+  el.style.fontFamily = 'Roboto Light, sans-serif';
+});
+
+document.body.style.width = '100%';
+document.body.style.height = '100%';
+document.body.style.margin = '0';
+document.body.style.padding = '0';
+
+var button = document.querySelector('button');
+var x = 0;
+var y = 0;
+var xSpeed = 1;
+var ySpeed = 1;
+var xMax = document.body.clientWidth - button.clientWidth;
+var yMax = document.body.clientHeight - button.clientHeight;
+var xMin = 0;
+var yMin = 0;
+var interval = setInterval(function() {
+  x += xSpeed;
+  y += ySpeed;
+  if (x > xMax) {
+    xSpeed = -1;
+  }
+  if (x < xMin) {
+    xSpeed = 1;
+  }
+  if (y > yMax) {
+    ySpeed = -1;
+  }
+  if (y < yMin) {
+    ySpeed = 1;
+  }
+  button.style.left = x + 'px';
+  button.style.top = y + 'px';
+}, 10);
+});
+        </script>
+    </head>
+
+</html>
